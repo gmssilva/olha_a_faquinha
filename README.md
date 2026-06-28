@@ -4,7 +4,7 @@
 Jogo 2D estilo "Knife Hit" desenvolvido em Unity. O jogador lança facas em um alvo giratório que muda de velocidade e direção ao longo do tempo. O objetivo é cravar todas as facas no alvo sem atingir outra faca já cravada. Ao acertar todas, o jogador vence. Ao colidir com outra faca, o jogador perde.
 
 ## Sobre
-Jogo produzido durante as aulas da disciplina de desenvolvimento de jogos digitais.
+Jogo produzido durante as aulas da disciplina Topicos Espaciais.
 
 ## Integrantes
 - Gabriel Mesquita
