@@ -5,11 +5,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [Header("Controle das Espadas")]
-    [SerializeField] private int espadasDisponiveis = 7;
-    private int espadaAtual = 0;
+    [Header("Controle das Moedas")]
+    [SerializeField] private int moedasDisponiveis = 7;
+    private int moedaAtual = 0;
+    private int lucroTotal = 0;
+    private const int valorPorMoeda = 100;
 
-    [Header("Spawn das Espadas")]
+    [Header("Spawn das Moedas")]
     [SerializeField] private GameObject espadaParaSpawnar;
     [SerializeField] private Vector2 posicaoInicialDaEspada = new Vector2(0f, -2.5f);
 
@@ -30,7 +32,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        UIManager.Instance.CarregarIconesDasEspadas(espadasDisponiveis);
+        UIManager.Instance.CarregarIconesDasEspadas(moedasDisponiveis);
+        UIManager.Instance.AtualizarLucro(lucroTotal);
         SpawnarNovaEspada();
     }
 
@@ -41,14 +44,16 @@ public class GameManager : MonoBehaviour
 
     public void QuandoAtingirAlvo()
     {
-        UIManager.Instance.AtualizarIconeDaEspada(espadaAtual);
+        lucroTotal += valorPorMoeda;
+        UIManager.Instance.AtualizarIconeDaEspada(moedaAtual);
+        UIManager.Instance.AtualizarLucro(lucroTotal);
 
-        espadasDisponiveis--;
-        espadaAtual++;
+        moedasDisponiveis--;
+        moedaAtual++;
 
-        if (espadasDisponiveis <= 0)
+        if (moedasDisponiveis <= 0)
         {
-            StartCoroutine("AtivarPainelFinalCoroutine", true);
+            StartCoroutine(AtivarPainelFinalCoroutine(true));
         }
         else
         {
@@ -58,12 +63,12 @@ public class GameManager : MonoBehaviour
 
     public void QuandoAtingirEspada()
     {
-        StartCoroutine("AtivarPainelFinalCoroutine", false);
+        StartCoroutine(AtivarPainelFinalCoroutine(false));
     }
 
     private IEnumerator AtivarPainelFinalCoroutine(bool venceu)
     {
         yield return new WaitForSeconds(tempoParaAtivarPainelFinal);
-        UIManager.Instance.AtivarPainelFinal(venceu);
+        UIManager.Instance.AtivarPainelFinal(venceu, lucroTotal);
     }
 }

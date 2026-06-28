@@ -9,13 +9,17 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    [Header("UI das Espadas")]
+    [Header("UI das Moedas")]
     [SerializeField] private GameObject painelDasEspadas;
     [SerializeField] private GameObject iconeDaEspada;
+
+    [Header("UI do Lucro")]
+    [SerializeField] private TextMeshProUGUI textoLucro;
 
     [Header("UI do Painel Final")]
     [SerializeField] private GameObject painelFinal;
     [SerializeField] private TextMeshProUGUI textoDoResultado;
+    [SerializeField] private TextMeshProUGUI textoLucroFinal;
 
     private void Awake()
     {
@@ -35,9 +39,9 @@ public class UIManager : MonoBehaviour
             painelFinal.SetActive(false);
     }
 
-    public void CarregarIconesDasEspadas(int espadasDisponiveis)
+    public void CarregarIconesDasEspadas(int moedasDisponiveis)
     {
-        for (int i = 0; i < espadasDisponiveis; i++)
+        for (int i = 0; i < moedasDisponiveis; i++)
         {
             GameObject icone = Instantiate(iconeDaEspada, painelDasEspadas.transform);
             icone.transform.localPosition = Vector3.zero;
@@ -45,15 +49,24 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void AtualizarIconeDaEspada(int espadaAtual)
+    public void AtualizarIconeDaEspada(int moedaAtual)
     {
-        painelDasEspadas.transform.GetChild(espadaAtual).GetComponent<Image>().color = Color.black;
+        painelDasEspadas.transform.GetChild(moedaAtual).GetComponent<Image>().color = Color.black;
     }
 
-    public void AtivarPainelFinal(bool venceu)
+    public void AtualizarLucro(int lucro)
+    {
+        if (textoLucro != null)
+            textoLucro.text = "R$ " + lucro.ToString();
+    }
+
+    public void AtivarPainelFinal(bool venceu, int lucroTotal)
     {
         if (textoDoResultado != null)
-            textoDoResultado.text = venceu ? "VITÓRIA" : "GAME OVER";
+            textoDoResultado.text = venceu ? "LUCRO!" : "FALÊNCIA!";
+
+        if (textoLucroFinal != null)
+            textoLucroFinal.text = venceu ? "Você lucrou: R$ " + lucroTotal.ToString() : "Você foi à falência!";
 
         if (painelFinal != null)
             painelFinal.SetActive(true);

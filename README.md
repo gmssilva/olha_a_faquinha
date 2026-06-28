@@ -1,10 +1,10 @@
-# Olha a Faquinha
+# Tudo Tem Preço
 
 ## Resumo do Projeto
-Jogo 2D estilo "Knife Hit" desenvolvido em Unity. O jogador lança facas em um alvo giratório que muda de velocidade e direção ao longo do tempo. O objetivo é cravar todas as facas no alvo sem atingir outra faca já cravada. Ao acertar todas, o jogador vence. Ao colidir com outra faca, o jogador perde.
+Jogo 2D estilo "Knife Hit" desenvolvido em Unity, com tema "Tudo Tem Preço". O jogador lança moedas em um alvo giratório que muda de velocidade e direção ao longo do tempo. Cada moeda cravada com sucesso vale R$ 100. O objetivo é acumular o maior lucro possível sem atingir outra moeda já cravada. Ao acertar todas, o jogador lucra. Ao colidir com outra moeda, o jogador vai à falência.
 
 ## Sobre
-Jogo produzido durante as aulas da disciplina Topicos Espaciais.
+Jogo produzido durante as aulas da disciplina de Tópicos Especiais em Tecnologia.
 
 ## Integrantes
 - Gabriel Mesquita
@@ -22,5 +22,5 @@ Jogo produzido durante as aulas da disciplina Topicos Espaciais.
 ### Sons
 - **Derrota** — Nome original: "end-game-fail" | Por davidbain: https://freesound.org/people/davidbain/sounds/135831/
 - **Impacto no Alvo** — Nome original: "impactWood_light_001" | "Impact Sounds" por Kenney: https://kenney.nl/assets/impact-sounds
-- **Impacto na Espada** — Nome original: "impactMetal_heavy_000" | "Impact Sounds" por Kenney: https://kenney.nl/assets/impact-sounds
+- **Impacto na Moeda** — Nome original: "impactMetal_heavy_000" | "Impact Sounds" por Kenney: https://kenney.nl/assets/impact-sounds
 - **Vitória** — Nome original: "powerupsuccess" | Por GabrielAraujo: https://freesound.org/people/GabrielAraujo/
